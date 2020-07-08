@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,jupyternotebooks,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,jupyternotebooks,windows
 
+# Ignore extracted data
+data/
+
 ### Django ###
 *.log
 *.pot
