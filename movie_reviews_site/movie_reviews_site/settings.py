@@ -16,7 +16,7 @@ ALLOWED_HOSTS = ['https://movie-review-rating-prediction.herokuapp.com/', '127.0
 # Application definition
 
 INSTALLED_APPS = [
-    'movie_reviews.apps.MovieReviewsConfig',
+    'movie_reviews_site.movie_reviews.apps.MovieReviewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
