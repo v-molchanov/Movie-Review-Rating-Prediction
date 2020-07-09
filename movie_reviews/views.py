@@ -11,29 +11,33 @@ import joblib
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-def preprocessor(text):
-    # remove html tags
-    text = BeautifulSoup(text, "html.parser").get_text()
+class Preprocessor:
+    def __init__(self):
+        pass
 
-    # remove noize
-    text = re.sub('[^A-Za-z0-9\']', ' ', text)  
-    text = re.sub('\s{2,}', ' ', text)
+    def preprocessor(text):
+        # remove html tags
+        text = BeautifulSoup(text, "html.parser").get_text()
 
-    text = text.lower()
+        # remove noize
+        text = re.sub('[^A-Za-z0-9\']', ' ', text)  
+        text = re.sub('\s{2,}', ' ', text)
 
-    # convert apostrophes into standard lexicons
-    apostrophes = load_apostrophes_from_json(os.path.join(CURRENT_DIR, 'ml/apostrophes.json'))
-    reformed = [apostrophes[word] if word in apostrophes else word for word in text.split()]
-    text = " ".join(reformed)
+        text = text.lower()
 
-    # also convert 'cannot' into 'can not'
-    text = re.sub('cannot', ' can not', text)
+        # convert apostrophes into standard lexicons
+        apostrophes = load_apostrophes_from_json(os.path.join(CURRENT_DIR, 'ml/apostrophes.json'))
+        reformed = [apostrophes[word] if word in apostrophes else word for word in text.split()]
+        text = " ".join(reformed)
 
-    # finally delete possessive cases and apostrophes
-    text = re.sub('\'s', '', text)
-    text = re.sub('\'', '', text)
+        # also convert 'cannot' into 'can not'
+        text = re.sub('cannot', ' can not', text)
 
-    return text
+        # finally delete possessive cases and apostrophes
+        text = re.sub('\'s', '', text)
+        text = re.sub('\'', '', text)
+
+        return text
 
 vectorizer = joblib.load(os.path.join(CURRENT_DIR, 'ml/vectorizer.joblib'))
 classifier = joblib.load(os.path.join(CURRENT_DIR, 'ml/classifier.joblib'))
