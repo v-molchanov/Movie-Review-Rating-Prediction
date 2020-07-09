@@ -2,7 +2,7 @@ import os
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = 'movie_reviews_site' + os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1qmk2nwtw!85f$4ol=pnspf-@xv$=#tixz$17bjlgc566yzn9a'
@@ -53,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'movie_reviews_site.movie_reviews_site.wsgi.application'
+WSGI_APPLICATION = 'movie_reviews_site.wsgi.application'
 
 
 # Database
