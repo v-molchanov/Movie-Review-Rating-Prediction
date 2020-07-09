@@ -10,7 +10,7 @@ SECRET_KEY = '1qmk2nwtw!85f$4ol=pnspf-@xv$=#tixz$17bjlgc566yzn9a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://movie-review-rating-prediction.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
