@@ -1,0 +1,1 @@
+web: gunicorn movie_reviews_site.movie_reviews_site.wsgi --log-file -
